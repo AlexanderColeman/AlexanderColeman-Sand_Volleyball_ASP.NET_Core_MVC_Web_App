@@ -1,0 +1,38 @@
+﻿@using SandVolleyballWebApp.Data.Enum
+@using SandVolleyballWebApp.ViewModels
+
+@model EditUserDashboardViewModel
+
+
+<form method="post" asp-action="AdminEditUserPost" enctype="multipart/form-data">
+    <input type="hidden" id="Id" name="Id" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Bio">Bio</label>
+        <input asp-for="Bio" class="form-control" placeholder="Bio">
+        <span asp-validation-for="Bio" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="City">City</label>
+        <input asp-for="City" class="form-control" placeholder="City">
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="State">State</label>
+        <input asp-for="State" class="form-control" placeholder="State">
+        <span asp-validation-for="State" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Image">Profile Image</label>
+        <input asp-for="Image" type="file" class="form-control" placeholder="Image">
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="PlayStyleGroup">PlayStyleGroup</label>
+    <select asp-for="PlayStyleGroup" asp-items="@Html.GetEnumSelectList<PlayStyleGroup>()" class="form-control">
+             <option>--Select--</option>
+    </select>
+    <span asp-validation-for="PlayStyleGroup" class="text-danger"></span>
+  </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a asp-controller="User" asp-action="Index" type="button" class="btn btn-primary">Cancel</a>
+</form>

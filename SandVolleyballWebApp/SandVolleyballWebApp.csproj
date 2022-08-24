@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>f4f9ab40-ecbb-4f42-a54d-356f7186df2b</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Court\StyleSheet.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.0.0" />
+    <PackageReference Include="Azure.Identity" Version="1.6.0" />
+    <PackageReference Include="CloudinaryDotNet" Version="1.19.0" />
+    <PackageReference Include="IPinfo" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.WindowsAzure.Management.Sql" Version="5.2.0" />
+    <PackageReference Include="System.Security.Claims" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+    <Folder Include="wwwroot\lib\microsoft\signalr\dist\browser\" />
+    <Folder Include="wwwroot\Photo\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Photo\volleyball-courts-img-1.jpg" />
+  </ItemGroup>
+
+</Project>

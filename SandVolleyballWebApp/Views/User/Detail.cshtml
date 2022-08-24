@@ -1,0 +1,24 @@
+﻿@using SandVolleyballWebApp.ViewModels
+@model UserProfileInformation
+
+
+<div class="container">
+	<h1 class="my-4">User Name: @Model.UserName</h1>
+	<div class="row">
+
+		<div class="col-md-8">
+			<img class="img-fluid" src="@Model.ProfileImageUrl" alt="Profile Image">
+		</div>
+
+		<div class="col-md-4">
+			<h2 class="my-3">Location</h2>
+			<li>@Model.City, @Model.State </li>
+			<h2 class="my-3">Play Style Group</h2>
+			<li>@Model.PlayStyleGroup</li>
+			<h2 class="my-3">Bio</h2>
+			<p>@Model.Bio</p>
+
+		</div>
+
+	</div>
+</div>

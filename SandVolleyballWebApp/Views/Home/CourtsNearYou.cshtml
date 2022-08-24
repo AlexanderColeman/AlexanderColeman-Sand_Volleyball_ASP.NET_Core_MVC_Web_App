@@ -1,0 +1,64 @@
+﻿@using SandVolleyballWebApp.ViewModels
+@model HomeViewModel
+
+
+
+<div class="album py-5 bs-gray-dark">
+	<div class="container">
+		<div class="row">
+			
+			@if (!Model.Courts.Any())
+			{
+
+				<h1>There are no volleyball courts in your City!</h1>
+
+				@if(User.Identity.IsAuthenticated){
+					<h1 class="fw-light">
+						Head Over to your 
+						<a asp-area="" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+						to create one!
+					</h1>
+
+
+				}else
+				{
+					<h1 class="fw-light">
+						<a asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+						and create one!
+					</h1>
+
+				}
+
+			}
+			else
+			{
+				<h1 class="fw-light">Sand volleyball courts near @Model.City, @Model.State</h1>
+				<section class="bs-gray-dark d-flex justify-content-center align-items-center h-50 min-vh-50">
+					<div class="container">
+						<div class="row gy-2">
+							@foreach (var item in Model.Courts)
+							{
+								<div class=" col-lg-3 col-md-4">
+									<div class="box bs-gray-dark h-100 d-flex p-4 flex-column text-white">
+										<img src="@item.Image" alt="Court Picture" />
+										<h6 class="mt-3 h-25">@item.Title</h6>
+										<div class="btn-group mt-auto">
+											<a asp-controller="Court" asp-action="Detail" asp-route-id="@item.Id" type="button" class=" mt-auto btn btn-sm btn-outline-secondary">View</a>
+											@if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+											{
+
+												<a asp-controller="Court" asp-action="Edit" asp-route-id="@item.Id" type="button" class="mt-auto btn btn-sm btn-outline-secondary">Edit</a>
+												<a asp-controller="Court" asp-action="Delete" asp-route-id="@item.Id" type="button" class="mt-auto btn btn-sm btn-outline-secondary">Delete</a>
+
+											}
+										</div>
+									</div>
+								</div>
+							}
+						</div>
+					</div>
+				</section>
+			}
+		</div>
+	</div>
+</div>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Court>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<form id="seachform" method="post">
+	<div style="padding-left:11px" class="row" id="seachbox">
+		<div class="col-md-2"> <input placeholder="Search State" class="form-control" type="text" id="state" name="state" /></div>
+		<div class="col-md-2"> <input asp-controller="court" asp-action="search" class="btn btn-primary" type="submit" value="search" id="submitsearch" /></div>
+	</div>
+</form>
+
+
+<div class="album py-5 bs-gray-dark">
+	<div class="container">
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+			@foreach (var item in Model)
+			{
+				<div class="col-md-4">
+					<div class="card mb-4 box-shadow">
+						<img class="card-img-top" src="@item.Image" width="100%" height="200" alt="Card image cap">
+						<div class="card-body">
+							<p class="card-text">@item.Title</p>
+							<p class="card-text-Description">@item.Description</p>
+							<div class="d-flex justify-content-between align-items-center">
+								<div class="btn-group">
+									<a asp-controller="Court" asp-action="Detail" asp-route-id="@item.Id" type="button" class="btn btn-sm btn-outline-secondary">View</a>
+									@if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+									{
+										<a asp-controller="Court" asp-action="Edit" asp-route-id="@item.Id" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
+										<a asp-controller="Court" asp-action="Delete" asp-route-id="@item.Id" type="button" class="btn btn-sm btn-outline-secondary">Delete</a>
+									}
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+</div>
+
