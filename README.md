@@ -1,6 +1,6 @@
 # SandVolley ball ASP.NET Core MVC Web App
 
-### A meet up app that allows users to see courts and other sand volleyball players that use the App. Ability click on profiles and details pages to find out more about either.
+### A meet up app that allows users to view sand volleyball courts and other sand volleyball players. Ability click on profiles and details pages to find out more about either.
 1. Users can Create, Read, Update and Delete their own accounts and courts.
 2. Made with Entity Framework and utilized a code first migration to populate a Sql Server database.
 3. Implemented a repository pattern to isolate the data access logic and business logic in order to allow for a more loosely coupled approach.
