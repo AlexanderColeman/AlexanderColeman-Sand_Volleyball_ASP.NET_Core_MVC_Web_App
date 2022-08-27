@@ -10,6 +10,6 @@
 7. Ability to search for courts by state.
 8. Validate Anti Forgery Token Tags were added to Put requests to prevent cross-site request forgery attacks. 
 9. .NET Core Identity also allowed me to give admins access to create, read, update and delete user roles that have different access levels. 
-
+10. Link to my website hosted on Azure [MVCAzure](https://mvc20220824121339.azurewebsites.net/ "MVCAzure Homepage")
 
   
