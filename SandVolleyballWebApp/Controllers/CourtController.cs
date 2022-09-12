@@ -138,16 +138,15 @@ namespace SandVolleyballWebApp.Controllers
                 return View(courtVM);
             }
         }
-        [Authorize]
+       
         public async Task<IActionResult> Delete(int id)
         {
             var courtDetails = await _unitOfWork.Court.GetByIdAsync(id);
             if (courtDetails == null) return View("Error");
             return View(courtDetails);
         }
-        [Authorize]
+      
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteCourt(int id)
         {
             var courtDetails = await _unitOfWork.Court.GetByIdAsync(id);

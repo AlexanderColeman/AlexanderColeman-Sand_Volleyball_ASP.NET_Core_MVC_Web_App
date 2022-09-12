@@ -130,18 +130,18 @@ namespace SandVolleyballWebApp.Controllers
 
             AppUser user = _userManager.FindByIdAsync(ViewBag.userId).Result;
 
-			var profile = new UserProfileInformation
-			{
-				Id = user.Id,
-				ProfileImageUrl = user.ProfileImageUrl,
-				Bio = user.Bio,
-				City = user.City,
-				State = user.State,
-				UserName = user.UserName,
-				PlayStyleGroup = user.PlayStyleGroup,
-			};
+            var profile = new UserProfileInformation
+            {
+                Id = user.Id,
+                ProfileImageUrl = user.ProfileImageUrl,
+                Bio = user.Bio,
+                City = user.City,
+                State = user.State,
+                UserName = user.UserName,
+                PlayStyleGroup = user.PlayStyleGroup,
+            };
 
-			return View(profile);
+            return View(profile);
         }
     }
 }

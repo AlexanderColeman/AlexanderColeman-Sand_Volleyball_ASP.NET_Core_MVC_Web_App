@@ -59,7 +59,6 @@ namespace SandVolleyballWebApp.Controllers
             return View(profile);
         }
 
-        [Authorize]
         public async Task<IActionResult> Delete(string id)
         {
             var user = await _unitOfWork.User.GetUserByIdAsync(id);
@@ -69,7 +68,6 @@ namespace SandVolleyballWebApp.Controllers
         }
         [Authorize(Roles = "admin")]
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteUser(string id)
         {
             var user = await _unitOfWork.User.GetUserByIdAsync(id);
